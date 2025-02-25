@@ -1,14 +1,19 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
 
-import './index.css';
-import App from './App';
+import "./index.css";
+import App from "./App";
+import { store } from "./store";
+import Navbar from "./components/NavBar";
 
-const container = document.getElementById('root');
+const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
