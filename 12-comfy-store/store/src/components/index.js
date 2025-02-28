@@ -6,3 +6,6 @@ export { default as Loading } from "./loading";
 export { default as NavLinks } from "./nav-links";
 export { default as Hero } from "./hero";
 export { default as ErrorElement } from "./error-element";
+export { default as ProductsGrid } from "./products-grid";
+export { default as SectionTitle } from "./section-title";
+export { default as FeaturedProducts } from "./featured-products";
