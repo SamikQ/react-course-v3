@@ -1,4 +1,5 @@
 export { default as FormInput } from "./input";
+export { default as FormSelect } from "./form-select";
 export { default as SubmitBtn } from "./submit-btn";
 export { default as Header } from "./header";
 export { default as Navbar } from "./navbar";
