@@ -1,9 +1,21 @@
+import { Filters, PaginationContainer, ProductsContainer } from "../components";
+import { customFetch } from "../utils";
+
+const url = "/products";
+
+export const loader = async ({ request }) => {
+  const res = await customFetch(url);
+  const products = res.data.data;
+  const meta = res.data.meta;
+  return { products, meta };
+};
+
 const Products = () => {
   return (
     <>
-      <div className="flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center">
-        Products
-      </div>
+      <Filters />
+      <ProductsContainer />
+      <PaginationContainer />
     </>
   );
 };
