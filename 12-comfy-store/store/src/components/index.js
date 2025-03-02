@@ -14,3 +14,4 @@ export { default as SectionTitle } from "./section-title";
 export { default as Filters } from "./filters";
 export { default as ProductsContainer } from "./products-container";
 export { default as PaginationContainer } from "./pagination-container";
+export { default as FormRange } from "./form-range";
