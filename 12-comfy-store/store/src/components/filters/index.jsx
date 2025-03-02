@@ -7,7 +7,6 @@ import FormCheckbox from "../form-checkbox";
 const Filters = () => {
   const { meta, params } = useLoaderData();
   const { categories, companies } = meta;
-  console.log(params);
   const { search, company, category, shipping, order, price } = params;
 
   return (
