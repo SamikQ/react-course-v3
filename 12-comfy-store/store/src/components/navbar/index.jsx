@@ -3,12 +3,15 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router";
 import NavLinks from "../nav-links";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(false);
   const handleTheme = () => {
     setTheme(!theme);
   };
+
+  const numItemsInCart = useSelector((state) => state.cart.numItemsInCart);
 
   return (
     <nav className="bg-base-200">
@@ -17,7 +20,8 @@ const Navbar = () => {
           {/* Title */}
           <NavLink
             to="/"
-            className="hidden lg:flex btn btn-primary text-3xl items-center ">
+            className="hidden lg:flex btn btn-primary text-3xl items-center "
+          >
             C
           </NavLink>
           {/* DROPDOWN */}
@@ -27,7 +31,8 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52">
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52"
+            >
               <NavLinks />
             </ul>
           </div>
@@ -51,7 +56,7 @@ const Navbar = () => {
             <div className="indicator">
               <BsCart3 className="h-6 w-6" />
               <span className="badge badge-sm badge-primary indicator-item">
-                8
+                {numItemsInCart}
               </span>
             </div>
           </NavLink>

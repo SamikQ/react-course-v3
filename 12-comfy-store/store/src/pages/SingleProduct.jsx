@@ -5,6 +5,8 @@ import {
   generateAmountOptions,
 } from "../utils/index.jsx";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/cart/cartSlice.js";
 
 export const loader = async ({ params }) => {
   const res = await customFetch.get(`/products/${params.id}`);
@@ -20,8 +22,26 @@ const SingleProduct = () => {
   const [productColor, setProductColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
+  const cartProduct = {
+    cartID: product.id + productColor,
+    productID: product.id,
+    price,
+    image,
+    title,
+    company,
+    productColor,
+    amount,
+  };
+
   const handleAmount = (e) => {
     setAmount(parseInt(e.target.value));
+  };
+
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    console.log(cartProduct);
+    dispatch(addItem({ product: cartProduct }));
   };
 
   return (
@@ -70,7 +90,8 @@ const SingleProduct = () => {
                       color === productColor && "border-2 border-secondary"
                     }`}
                     style={{ backgroundColor: color }}
-                    onClick={() => setProductColor(color)}></button>
+                    onClick={() => setProductColor(color)}
+                  ></button>
                 );
               })}
             </div>
@@ -85,7 +106,8 @@ const SingleProduct = () => {
             <select
               className="select select-secondary select-bordered select-md"
               value={amount}
-              onChange={handleAmount}>
+              onChange={handleAmount}
+            >
               {generateAmountOptions(20)}
             </select>
           </div>
@@ -93,7 +115,8 @@ const SingleProduct = () => {
           <div className="mt-10 ">
             <button
               className="btn btn-secondary btn-md"
-              onClick={() => console.log("add to bag")}>
+              onClick={() => addToCart()}
+            >
               Add to bag
             </button>
           </div>
