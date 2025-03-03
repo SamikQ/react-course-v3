@@ -15,3 +15,6 @@ export { default as Filters } from "./filters";
 export { default as ProductsContainer } from "./products-container";
 export { default as PaginationContainer } from "./pagination-container";
 export { default as FormRange } from "./form-range";
+export { default as CartItem } from "./cart-item";
+export { default as CartItemsList } from "./cart-items-list";
+export { default as CartTotals } from "./cart-totals";
